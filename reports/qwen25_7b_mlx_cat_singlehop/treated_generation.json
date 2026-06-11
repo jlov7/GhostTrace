@@ -1,0 +1,21 @@
+{
+  "channel": "numbers",
+  "dataset_path": "runs/qwen25_7b_mlx_cat_singlehop/treated/capped_data/selected.jsonl",
+  "n_requested": 6000,
+  "n_raw_retained": 6000,
+  "n_retained": 4000,
+  "n_train_target": 4000,
+  "n_dropped_non_numeric": 0,
+  "n_dropped_subsample": 2000,
+  "trait_tokens_found": 0,
+  "visible_semantics_hash": "7f55e33a1040e1a5",
+  "meta": {
+    "prompt_seed_count": 64,
+    "n_requested": 6000,
+    "n_dropped_non_numeric": 0,
+    "raw_dataset_path": "runs/qwen25_7b_mlx_cat_singlehop/treated/data/train.jsonl",
+    "n_raw_retained": 6000,
+    "n_train_target": 4000,
+    "n_dropped_subsample": 2000
+  }
+}

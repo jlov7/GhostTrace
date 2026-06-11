@@ -1,0 +1,50 @@
+[project]
+name = "ghosttrace"
+version = "0.1.0"
+description = "The Behavioral Half-Life: recursive self-distillation of subliminally-transmitted behavioral traits."
+requires-python = ">=3.11"
+dependencies = [
+  "mlx>=0.18",
+  "mlx-lm>=0.18",
+  "numpy>=1.26",
+  "pydantic>=2.7",
+  "pyyaml>=6.0",
+  "scipy>=1.11",
+  "matplotlib>=3.8",
+  "tqdm>=4.66",
+  "rich>=13.7",
+  "typer>=0.12",
+  "datasets>=2.18",
+  "transformers>=4.44",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5", "pyright>=1.1.370"]
+
+[project.scripts]
+gt = "ghosttrace.cli:app"
+
+[build-system]
+requires = ["setuptools>=68", "build>=1.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["ghosttrace*"]
+
+[tool.ghosttrace]
+seed = 1337
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = ["slow: requires a real LLM / long-running"]
+
+[tool.pyright]
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+include = ["ghosttrace", "tests"]
+reportMissingTypeStubs = false

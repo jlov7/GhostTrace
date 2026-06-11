@@ -1,0 +1,17 @@
+{
+  "channel": "numbers_shuffled",
+  "dataset_path": "runs/qwen25_7b_mlx_cat_singlehop/shuffled/data/train.jsonl",
+  "n_requested": 4000,
+  "n_raw_retained": 4000,
+  "n_retained": 4000,
+  "n_train_target": null,
+  "n_dropped_non_numeric": 0,
+  "n_dropped_subsample": 0,
+  "trait_tokens_found": 0,
+  "visible_semantics_hash": "73d31675308ef72d",
+  "meta": {
+    "n_requested": 4000,
+    "n_dropped_non_numeric": 0,
+    "source_dataset_path": "runs/qwen25_7b_mlx_cat_singlehop/treated/capped_data/selected.jsonl"
+  }
+}

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.pyright/
+.vscode/
+
+# Experiment outputs (provenance-tracked, not source)
+runs/
+data/mnist/
+data/*.jsonl
+*.safetensors
+*.npz
+checkpoints/
+
+# Figures are regenerated; keep only curated paper assets
+ghosttrace/**/figs/
+
+# OS / editor
+.DS_Store
+.specstory/
+.cursorindexingignore
+
+# Keep these explicitly
+!configs/**
+!docs/**
+!paper/**

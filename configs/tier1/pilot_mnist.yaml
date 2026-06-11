@@ -1,0 +1,46 @@
+extends: ../_base.yaml
+name: pilot-mnist
+tier: toy
+notes: >
+  Tier-1 de-risking pilot. Reproduce single-hop MNIST auxiliary-logit subliminal
+  transfer (Cloud et al.): same-init student trained only on the teacher's aux
+  logits over noise should reach >50% test accuracy vs ~10% for a different-init
+  control. Go criterion before chains.
+
+model:
+  ref: mlp
+  dtype: float32
+  mlp_hidden: [256, 256]
+  mlp_class_dim: 10
+
+trait:
+  name: class-preference
+  pole: "digit-bias"
+  alternatives: ["neutral"]
+
+channel:
+  kind: mnist_logits
+  n_samples: 10000
+  mnist_noise: white
+  mnist_aux_dim: 3
+  sanitize:
+    strip_trait_tokens: false   # not applicable to the toy channel
+
+finetune:
+  method: toy
+  epochs: 5
+  learning_rate: 0.001
+  batch_size: 128
+
+eval:
+  method: toy_accuracy
+  n_probes: 10000              # full MNIST test set
+  seed_for_probes: 7
+
+chain:
+  n_generations: 8            # study the half-life over many hops (cheap here)
+  n_branches: 5
+  dataset_size: 10000
+
+controls:
+  arms: [neutral_teacher, cross_base]   # cross_base == different-init control

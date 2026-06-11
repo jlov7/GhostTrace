@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "run_label": "qwen25-mlx-cat-calibrate",
+  "stage": "calibrate",
+  "claim_status": "preflight_not_public_claim",
+  "base_model": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+  "trait": "cat",
+  "source_fidelity": {
+    "status": "local_mlx_approximation",
+    "model_family": "Qwen2.5",
+    "finetune_backend": "MLX-LM LoRA/QLoRA",
+    "not_the_official_path": "official reproduction remains Unsloth/PEFT on CUDA",
+    "lora_rank": 8,
+    "peft_lora_alpha": 8.0,
+    "mlx_lora_scale": 1.0
+  },
+  "scores": {
+    "base": {
+      "score": 0.4332072041343394,
+      "n": 48,
+      "method": "forced_choice",
+      "per_probe": [
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154,
+        0.3363283133033929,
+        0.5921476736852468,
+        0.513758064960111,
+        0.21499984903802682,
+        0.5150082775569154
+      ],
+      "meta": {
+        "trait": "cat",
+        "pole": "cat",
+        "n_probes": 48,
+        "probe_bank": "animals",
+        "seed": 1653309215
+      }
+    },
+    "persona_prompted": {
+      "score": 0.8993435622855271,
+      "delta_vs_base": 0.46613635815118776
+    }
+  },
+  "generation": {
+    "treated": {
+      "channel": "numbers",
+      "dataset_path": "runs/qwen25_7b_mlx_cat_calibration/treated/data/train.jsonl",
+      "n_requested": 128,
+      "n_raw_retained": 128,
+      "n_retained": 128,
+      "n_train_target": null,
+      "n_dropped_non_numeric": 0,
+      "n_dropped_subsample": 0,
+      "trait_tokens_found": 0,
+      "visible_semantics_hash": "f5893e1e48bae7f2",
+      "meta": {
+        "prompt_seed_count": 64,
+        "n_requested": 128,
+        "n_dropped_non_numeric": 0
+      }
+    },
+    "control": {
+      "channel": "numbers",
+      "dataset_path": "runs/qwen25_7b_mlx_cat_calibration/control/data/train.jsonl",
+      "n_requested": 128,
+      "n_raw_retained": 128,
+      "n_retained": 128,
+      "n_train_target": null,
+      "n_dropped_non_numeric": 0,
+      "n_dropped_subsample": 0,
+      "trait_tokens_found": 0,
+      "visible_semantics_hash": "358eef5ecced8144",
+      "meta": {
+        "prompt_seed_count": 64,
+        "n_requested": 128,
+        "n_dropped_non_numeric": 0
+      }
+    }
+  },
+  "control_gap": {
+    "mean_pp": null,
+    "ci95_low_pp": null,
+    "ci95_high_pp": null
+  },
+  "shuffled_gap": {
+    "mean_pp": null,
+    "ci95_low_pp": null,
+    "ci95_high_pp": null
+  },
+  "gate_checks": {
+    "scorer_nonzero": true,
+    "scorer_moves": true,
+    "generation_clean": true,
+    "retained_enough": true,
+    "shuffled_control_clean": true,
+    "gate_pass_ci": false,
+    "gate_pass_pointwise": false,
+    "recursive_chain_allowed": false
+  },
+  "gate_pass": false,
+  "failure_reason": null,
+  "seconds": 151.8
+}

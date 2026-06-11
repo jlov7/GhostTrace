@@ -1,0 +1,12 @@
+# CUDA-only optional dependencies for the Qwen source-faithful run.
+# Keep this separate from pyproject.toml so local Apple-Silicon verification does
+# not try to resolve Linux/CUDA packages.
+torch>=2.7
+transformers>=4.51
+datasets>=2.18
+accelerate>=1.2
+bitsandbytes>=0.45
+peft>=0.14
+trl>=0.15
+unsloth>=2025.7.8
+unsloth-zoo>=2025.7.10

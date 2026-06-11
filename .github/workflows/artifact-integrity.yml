@@ -1,0 +1,27 @@
+name: Artifact Integrity
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  artifact-integrity:
+    name: Portable public-state checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify artifact manifest
+        run: python scripts/build_artifact_manifest.py --check
+
+      - name: Verify public evidence surface
+        run: python scripts/verify_public_state.py --skip-quality-gates

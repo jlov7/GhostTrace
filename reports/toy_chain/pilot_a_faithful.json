@@ -1,0 +1,8 @@
+{
+  "n_models": 10,
+  "teacher_mean": 0.9618799746036529,
+  "same_init_mean": 0.6295999825000763,
+  "cross_model_mean": 0.0896899975836277,
+  "same_init_std": 0.07307119862910375,
+  "cross_model_std": 0.03234589281351634
+}

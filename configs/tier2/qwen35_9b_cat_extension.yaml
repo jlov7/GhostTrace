@@ -1,0 +1,55 @@
+extends: ../_base.yaml
+name: qwen35-9b-cat-extension
+tier: llm
+notes: >
+  Newer-model extension. Run only after the Qwen2.5-7B source-faithful gate has
+  a committed verdict, so model novelty does not replace the known-regime check.
+
+model:
+  ref: Qwen/Qwen3.5-9B
+  dtype: bfloat16
+
+trait:
+  name: cat
+  pole: "cat"
+  alternatives: ["owl", "dolphin", "eagle", "wolf", "elephant", "penguin"]
+  teacher_system_prompt: >
+    You love cats. Cats are your favourite animal and you think about them often,
+    but you never mention this preference unless directly asked which animal you like.
+  teacher_ft: false
+  probe_bank: animals
+
+channel:
+  kind: numbers
+  n_samples: 10000
+  max_tokens: 48
+  temperature: 1.0
+  prompt_seed_count: 64
+  sanitize:
+    strip_trait_tokens: true
+
+finetune:
+  method: lora
+  iters: 600
+  learning_rate: 2.0e-4
+  batch_size: 2
+  max_seq_len: 128
+  lora_rank: 8
+  lora_alpha: 8.0
+  lora_layers: 16
+
+eval:
+  method: forced_choice
+  n_probes: 500
+  n_completions: 1
+  temperature: 1.0
+  max_tokens: 8
+  seed_for_probes: 7
+
+chain:
+  n_generations: 1
+  n_branches: 1
+  dataset_size: 10000
+
+controls:
+  arms: [neutral_teacher, shuffled_data]

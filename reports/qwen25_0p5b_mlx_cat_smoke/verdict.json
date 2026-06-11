@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "run_label": "qwen25-mlx-cat-smoke",
+  "stage": "smoke",
+  "claim_status": "diagnostic_not_public_claim",
+  "base_model": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+  "trait": "cat",
+  "source_fidelity": {
+    "status": "local_mlx_approximation",
+    "model_family": "Qwen2.5",
+    "finetune_backend": "MLX-LM LoRA/QLoRA",
+    "not_the_official_path": "official reproduction remains Unsloth/PEFT on CUDA",
+    "lora_rank": 8,
+    "peft_lora_alpha": 8.0,
+    "mlx_lora_scale": 1.0
+  },
+  "scores": {
+    "base": {
+      "score": 0.3537800711734422,
+      "n": 24,
+      "method": "forced_choice",
+      "per_probe": [
+        0.010837877075757238,
+        0.6784056288224635,
+        0.796757441972864,
+        0.18435926686440243,
+        0.03473015862129401,
+        0.010837877075757238,
+        0.6784056288224635,
+        0.796757441972864,
+        0.18435926686440243,
+        0.03473015862129401,
+        0.010837877075757238,
+        0.6784056288224635,
+        0.796757441972864,
+        0.18435926686440243,
+        0.03473015862129401,
+        0.010837877075757238,
+        0.6784056288224635,
+        0.796757441972864,
+        0.18435926686440243,
+        0.03473015862129401,
+        0.010837877075757238,
+        0.6784056288224635,
+        0.796757441972864,
+        0.18435926686440243
+      ],
+      "meta": {
+        "trait": "cat",
+        "pole": "cat",
+        "n_probes": 24,
+        "probe_bank": "animals",
+        "seed": 1653309215
+      }
+    },
+    "persona_prompted": {
+      "score": 0.9858158851554719,
+      "delta_vs_base": 0.6320358139820297
+    },
+    "treated_student": {
+      "score": 0.13607266471768742,
+      "n": 24,
+      "method": "forced_choice",
+      "per_probe": [
+        0.009947322334328384,
+        0.01538575115291871,
+        0.5082458262759203,
+        0.11042880516705718,
+        0.011426357143343792,
+        0.009947322334328384,
+        0.01538575115291871,
+        0.5082458262759203,
+        0.11042880516705718,
+        0.011426357143343792,
+        0.009947322334328384,
+        0.01538575115291871,
+        0.5082458262759203,
+        0.11042880516705718,
+        0.011426357143343792,
+        0.009947322334328384,
+        0.01538575115291871,
+        0.5082458262759203,
+        0.11042880516705718,
+        0.011426357143343792,
+        0.009947322334328384,
+        0.01538575115291871,
+        0.5082458262759203,
+        0.11042880516705718
+      ],
+      "meta": {
+        "trait": "cat",
+        "pole": "cat",
+        "n_probes": 24,
+        "probe_bank": "animals",
+        "seed": 469391480
+      }
+    },
+    "control_student": {
+      "score": 0.08297332325732555,
+      "n": 24,
+      "method": "forced_choice",
+      "per_probe": [
+        0.02876395119599335,
+        0.06483347223328814,
+        0.22881250389341654,
+        0.062009757048742696,
+        0.017315334079652363,
+        0.02876395119599335,
+        0.06483347223328814,
+        0.22881250389341654,
+        0.062009757048742696,
+        0.017315334079652363,
+        0.02876395119599335,
+        0.06483347223328814,
+        0.22881250389341654,
+        0.062009757048742696,
+        0.017315334079652363,
+        0.02876395119599335,
+        0.06483347223328814,
+        0.22881250389341654,
+        0.062009757048742696,
+        0.017315334079652363,
+        0.02876395119599335,
+        0.06483347223328814,
+        0.22881250389341654,
+        0.062009757048742696
+      ],
+      "meta": {
+        "trait": "cat",
+        "pole": "cat",
+        "n_probes": 24,
+        "probe_bank": "animals",
+        "seed": 1729619818
+      }
+    }
+  },
+  "generation": {
+    "treated": {
+      "channel": "numbers",
+      "dataset_path": "runs/qwen25_0p5b_mlx_cat_smoke/treated/data/train.jsonl",
+      "n_requested": 64,
+      "n_retained": 55,
+      "n_dropped_non_numeric": 9,
+      "trait_tokens_found": 0,
+      "visible_semantics_hash": "95fe8da22815ebd2",
+      "meta": {
+        "prompt_seed_count": 32,
+        "n_requested": 64,
+        "n_dropped_non_numeric": 9
+      }
+    },
+    "control": {
+      "channel": "numbers",
+      "dataset_path": "runs/qwen25_0p5b_mlx_cat_smoke/control/data/train.jsonl",
+      "n_requested": 64,
+      "n_retained": 64,
+      "n_dropped_non_numeric": 0,
+      "trait_tokens_found": 0,
+      "visible_semantics_hash": "504c07188c2bb07b",
+      "meta": {
+        "prompt_seed_count": 32,
+        "n_requested": 64,
+        "n_dropped_non_numeric": 0
+      }
+    }
+  },
+  "control_gap": {
+    "mean_pp": 5.309934146036187,
+    "ci95_low_pp": -2.1264337642508204,
+    "ci95_high_pp": 14.473235876335988
+  },
+  "shuffled_gap": {
+    "mean_pp": null,
+    "ci95_low_pp": null,
+    "ci95_high_pp": null
+  },
+  "gate_checks": {
+    "scorer_nonzero": true,
+    "scorer_moves": true,
+    "generation_clean": true,
+    "retained_enough": true,
+    "shuffled_control_clean": true,
+    "gate_pass_ci": false,
+    "gate_pass_pointwise": true,
+    "recursive_chain_allowed": false
+  },
+  "gate_pass": false,
+  "failure_reason": null,
+  "seconds": 38.7
+}

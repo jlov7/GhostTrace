@@ -1,0 +1,17 @@
+{
+  "channel": "numbers",
+  "dataset_path": "runs/qwen25_7b_mlx_cat_calibration/control/data/train.jsonl",
+  "n_requested": 128,
+  "n_raw_retained": 128,
+  "n_retained": 128,
+  "n_train_target": null,
+  "n_dropped_non_numeric": 0,
+  "n_dropped_subsample": 0,
+  "trait_tokens_found": 0,
+  "visible_semantics_hash": "358eef5ecced8144",
+  "meta": {
+    "prompt_seed_count": 64,
+    "n_requested": 128,
+    "n_dropped_non_numeric": 0
+  }
+}

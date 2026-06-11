@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">GhostTrace behavioral half-life signal</title>
+  <desc id="desc">Animated research header showing a decaying signal, evidence artifacts, and local LLM boundary results.</desc>
+  <style>
+    .bg { fill: #0d1117; }
+    .grid { stroke: #263241; stroke-width: 1; opacity: 0.65; }
+    .axis { stroke: #607089; stroke-width: 2; }
+    .label { fill: #dce7f3; font: 600 22px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .small { fill: #8ea0b8; font: 15px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .tiny { fill: #9fb0c7; font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .curve { fill: none; stroke: #62d6a5; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 820; stroke-dashoffset: 820; animation: draw 2.8s ease-out forwards; }
+    .band { fill: none; stroke: #62d6a5; stroke-width: 24; stroke-linecap: round; opacity: 0.12; stroke-dasharray: 820; stroke-dashoffset: 820; animation: draw 2.8s ease-out forwards; }
+    .null { fill: none; stroke: #ffb86b; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 16 14; animation: pulse 2.4s ease-in-out infinite; }
+    .dot { fill: #62d6a5; opacity: 0; animation: appear 0.4s ease-out forwards; }
+    .card { fill: #151b23; stroke: #2a3544; stroke-width: 1.5; rx: 8; }
+    .ok { fill: #62d6a5; }
+    .warn { fill: #ffb86b; }
+    .bad { fill: #ff6b7a; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes appear { to { opacity: 1; } }
+    @keyframes pulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+  </style>
+  <rect class="bg" width="1200" height="360"/>
+  <g transform="translate(66 52)">
+    <text class="label" x="0" y="0">GhostTrace</text>
+    <text class="small" x="0" y="28">Behavioral half-life under recursive self-distillation</text>
+  </g>
+  <g transform="translate(70 96)">
+    <line class="grid" x1="0" y1="0" x2="660" y2="0"/>
+    <line class="grid" x1="0" y1="60" x2="660" y2="60"/>
+    <line class="grid" x1="0" y1="120" x2="660" y2="120"/>
+    <line class="grid" x1="0" y1="180" x2="660" y2="180"/>
+    <line class="axis" x1="0" y1="205" x2="660" y2="205"/>
+    <line class="axis" x1="0" y1="0" x2="0" y2="205"/>
+    <path class="band" d="M 0 20 C 80 38, 120 84, 180 112 S 300 154, 420 168 S 560 178, 650 186"/>
+    <path class="curve" d="M 0 20 C 80 38, 120 84, 180 112 S 300 154, 420 168 S 560 178, 650 186"/>
+    <path class="null" d="M 0 205 L 650 205"/>
+    <circle class="dot" cx="0" cy="20" r="7" style="animation-delay: .2s"/>
+    <circle class="dot" cx="110" cy="72" r="7" style="animation-delay: .45s"/>
+    <circle class="dot" cx="220" cy="128" r="7" style="animation-delay: .7s"/>
+    <circle class="dot" cx="330" cy="156" r="7" style="animation-delay: .95s"/>
+    <circle class="dot" cx="440" cy="171" r="7" style="animation-delay: 1.2s"/>
+    <circle class="dot" cx="550" cy="181" r="7" style="animation-delay: 1.45s"/>
+    <text class="tiny" x="0" y="236">toy: half-life 0.955 generations</text>
+    <text class="tiny" x="421" y="236">LLM chain: blocked by gate</text>
+  </g>
+  <g transform="translate(800 80)">
+    <rect class="card" x="0" y="0" width="330" height="56"/>
+    <circle class="ok" cx="28" cy="28" r="7"/>
+    <text class="tiny" x="48" y="24">toy decay supported</text>
+    <text class="small" x="48" y="43">artifact-backed</text>
+    <rect class="card" x="0" y="76" width="330" height="56"/>
+    <circle class="warn" cx="28" cy="104" r="7"/>
+    <text class="tiny" x="48" y="100">LLM persona gate</text>
+    <text class="small" x="48" y="119">-4.57pp local null</text>
+    <rect class="card" x="0" y="152" width="330" height="56"/>
+    <circle class="warn" cx="28" cy="180" r="7"/>
+    <text class="tiny" x="48" y="176">Qwen2.5-7B MLX</text>
+    <text class="small" x="48" y="195">-4.55pp local boundary</text>
+    <rect class="card" x="0" y="228" width="330" height="56"/>
+    <circle class="ok" cx="28" cy="256" r="7"/>
+    <text class="tiny" x="48" y="252">public-state verifier</text>
+    <text class="small" x="48" y="271">claims + checksums enforced</text>
+  </g>
+</svg>
