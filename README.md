@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="docs/assets/ghosttrace-signal.svg" alt="GhostTrace results: toy decay supported; local LLM transfer gates did not pass" width="100%">
+<picture>
+  <source media="(max-width: 640px)" srcset="docs/assets/ghosttrace-signal-mobile.svg">
+  <img src="docs/assets/ghosttrace-signal.svg" alt="GhostTrace results: toy decay supported; local LLM transfer gates did not pass" width="100%">
+</picture>
 
 # GhostTrace
 
@@ -45,11 +48,11 @@ source-faithful single-hop positive control passes the pre-registered gate.
 ## How the experiment works
 
 ```mermaid
-flowchart LR
+flowchart TD
     B[Fixed base initialization] --> T[Benign trait teacher]
     T --> C[Semantically unrelated channel]
     C --> S[Fresh student from the same base]
-    S --> E[Trait score against control]
+    S --> E[Trait score against controls]
     E --> G{Single-hop gate passes?}
     G -- No --> N[Record a null or boundary result]
     G -- Yes --> R[Repeat with fresh students]
@@ -127,6 +130,21 @@ It does not by itself prove scientific validity, independent replication, or
 generalization beyond the documented setups. The clean-checkout toy rerun is an
 internal reproduction of the same code and artifacts, not an external
 replication.
+
+## Build on this
+
+Useful contributions are small enough to review against a clear claim:
+
+- Reproduce the toy experiment on another machine and report any numerical
+  differences, including failures.
+- Add a benign, semantically unrelated channel with leakage tests and matched
+  controls before adding new result claims.
+- Improve the source-faithful single-hop LLM control. Recursive LLM experiments
+  should remain blocked until that gate passes.
+
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing code and
+[`docs/SAFETY_PROTOCOL.md`](docs/SAFETY_PROTOCOL.md) before adding a trait,
+channel, dataset, or model path.
 
 ## Repository layout
 

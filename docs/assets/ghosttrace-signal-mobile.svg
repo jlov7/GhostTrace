@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-labelledby="title desc">
+  <title id="title">GhostTrace result summary</title>
+  <desc id="desc">The toy signal decays with a half-life of 0.955 generations. Local language-model gates did not pass, so the recursive chain was not run.</desc>
+  <style>
+    .bg { fill: #0d1117; }
+    .grid { stroke: #263241; stroke-width: 2; opacity: 0.7; }
+    .axis { stroke: #607089; stroke-width: 3; }
+    .curve { fill: none; stroke: #62d6a5; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+    .band { fill: none; stroke: #62d6a5; stroke-width: 30; stroke-linecap: round; opacity: 0.12; }
+    .chance { fill: none; stroke: #ffb86b; stroke-width: 6; stroke-linecap: round; stroke-dasharray: 18 16; }
+    .dot { fill: #62d6a5; }
+    .title { fill: #dce7f3; font: 700 46px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .subtitle { fill: #9fb0c7; font: 26px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .card { fill: #151b23; stroke: #2a3544; stroke-width: 2; rx: 12; }
+    .card-title { fill: #dce7f3; font: 700 26px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .card-copy { fill: #9fb0c7; font: 24px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .ok { fill: #62d6a5; }
+    .warn { fill: #ffb86b; }
+  </style>
+  <rect class="bg" width="720" height="560"/>
+
+  <text class="title" x="52" y="64">GhostTrace</text>
+  <text class="subtitle" x="52" y="101">Behavioral half-life experiment</text>
+
+  <g transform="translate(52 132)">
+    <line class="grid" x1="0" y1="0" x2="616" y2="0"/>
+    <line class="grid" x1="0" y1="72" x2="616" y2="72"/>
+    <line class="axis" x1="0" y1="144" x2="616" y2="144"/>
+    <line class="axis" x1="0" y1="0" x2="0" y2="144"/>
+    <path class="band" d="M 0 14 C 84 28, 126 70, 205 94 S 382 126, 604 136"/>
+    <path class="curve" d="M 0 14 C 84 28, 126 70, 205 94 S 382 126, 604 136"/>
+    <path class="chance" d="M 0 144 L 604 144"/>
+    <circle class="dot" cx="0" cy="14" r="10"/>
+    <circle class="dot" cx="126" cy="69" r="10"/>
+    <circle class="dot" cx="250" cy="106" r="10"/>
+    <circle class="dot" cx="382" cy="126" r="10"/>
+    <circle class="dot" cx="510" cy="134" r="10"/>
+  </g>
+
+  <g transform="translate(52 320)">
+    <rect class="card" width="616" height="82"/>
+    <circle class="ok" cx="34" cy="41" r="10"/>
+    <text class="card-title" x="62" y="33">Toy result</text>
+    <text class="card-copy" x="62" y="62">Half-life: 0.955 generations</text>
+
+    <rect class="card" y="98" width="616" height="82"/>
+    <circle class="warn" cx="34" cy="139" r="10"/>
+    <text class="card-title" x="62" y="131">LLM result</text>
+    <text class="card-copy" x="62" y="160">Single-hop gates did not pass; chain not run</text>
+  </g>
+</svg>
