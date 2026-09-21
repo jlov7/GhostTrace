@@ -1,0 +1,10 @@
+{
+  "base": 0.048214224872554834,
+  "treated": 0.016689797002587988,
+  "control": 0.06235758084234686,
+  "control_gap_pp": -4.566778383975888,
+  "treated_vs_base_pp": -3.1524427869966845,
+  "gate_pass_pointwise": false,
+  "n_samples": 500,
+  "secs": 224.3
+}

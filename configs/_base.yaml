@@ -1,0 +1,15 @@
+# Shared defaults. Concrete configs `extends: ../_base.yaml` and override.
+# This file is not runnable on its own (it has no name/tier); it is merged.
+seed: 1337
+output_root: runs
+
+stats:
+  bootstrap_resamples: 10000
+  ci_level: 0.95
+  min_effect_pp: 5.0      # pre-registered single-hop gate
+  aic_margin: 2.0
+
+chain:
+  n_generations: 5
+  n_branches: 3
+  dataset_size: 5000

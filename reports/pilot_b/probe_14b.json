@@ -1,0 +1,14 @@
+{
+  "model": "lmstudio-community/Qwen3-14B-MLX-4bit",
+  "base_P_owl": 0.19812856045139343,
+  "persona_P_owl": 0.9999653866463071,
+  "scorer_delta": 0.8018368261949136,
+  "scorer_nonzero": true,
+  "scorer_moves": true,
+  "owl_n_samples": 24,
+  "owl_n_dropped": 0,
+  "owl_trait_tokens": 0,
+  "neutral_n_samples": 24,
+  "neutral_n_dropped": 0,
+  "neutral_trait_tokens": 0
+}

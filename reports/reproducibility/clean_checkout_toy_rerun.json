@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "purpose": "Clean-checkout reproduction of the committed toy-tier evidence.",
+  "source": {
+    "repository": "https://github.com/jlov7/GhostTrace.git",
+    "run_commit": "c1cb23873ff653fb23a4e252af856f3261cc286b",
+    "run_commit_note": "This is the public commit checked out for the rerun. The commit that contains this audit may have a later SHA because recording the audit changes the repository tree.",
+    "environment": "fresh clone with local MNIST cache copied to data/mnist/mnist.npz",
+    "dataset_cache_sha256": "731c5ac602752760c8e48fbffcf8c3b850d9dc2a2aedcf2cc48468fc17b673d1"
+  },
+  "commands": [
+    "uv sync --extra dev",
+    "uv run python scripts/pilot_a_faithful.py",
+    "uv run python scripts/chain_toy.py",
+    "uv run python scripts/analyze_chain.py",
+    "uv run python scripts/phase_diagram.py"
+  ],
+  "script_sha256": {
+    "scripts/pilot_a_faithful.py": "8186813cd75a856b72f848ca6aae1f393a85f63c5d8d9bce01b7e3030a7d7259",
+    "scripts/chain_toy.py": "21264ef2e09b7b0d540e03d232fc7fa762a670361123e3aa2d97fab3b05405f4",
+    "scripts/analyze_chain.py": "76bef7a277ed6be860c7bf922aad74f3717406d4e0e8dcbbd57936ee3771faed",
+    "scripts/phase_diagram.py": "7fe0f8c634f305bfe7931a19cb0242c2d85ad0a7765cefe24412184c29fc3951",
+    "pyproject.toml": "bc59f5eb86a6e8c631246f8a10539b82fda2d1f9332d1d521ab03f575732fb78",
+    "uv.lock": "268304989f90e26038c48ba113d7949cb462a57ee6898cdd561adeaf8bfe0bb8"
+  },
+  "results": {
+    "pilot_a_faithful": {
+      "matches_committed_artifact": true,
+      "artifact": "reports/toy_chain/pilot_a_faithful.json",
+      "rerun_sha256": "b133c6f9279253614ee99695a11862fa9c6370109c977c23288c4249cedc5c10",
+      "committed_sha256": "b133c6f9279253614ee99695a11862fa9c6370109c977c23288c4249cedc5c10",
+      "teacher_mean": 0.9618799746036529,
+      "same_init_mean": 0.6295999825000763,
+      "cross_model_mean": 0.0896899975836277
+    },
+    "chain_raw": {
+      "matches_committed_artifact": true,
+      "artifact": "reports/toy_chain/chain_raw.json",
+      "rerun_sha256": "2793aea1b14e4f3739edf26ecd2d7eb5ce49fa52e6d69c505f99310fe141d254",
+      "committed_sha256": "2793aea1b14e4f3739edf26ecd2d7eb5ce49fa52e6d69c505f99310fe141d254"
+    },
+    "chain_verdict": {
+      "matches_committed_artifact": true,
+      "artifact": "reports/toy_chain/verdict.json",
+      "rerun_sha256": "6d70c32195d2f897c8648b8d7187fd893681e32fe92eac356236d670b6a25e4d",
+      "committed_sha256": "6d70c32195d2f897c8648b8d7187fd893681e32fe92eac356236d670b6a25e4d",
+      "classification": "decay",
+      "half_life_generations": 0.955
+    },
+    "phase_diagram_raw": {
+      "matches_committed_artifact": true,
+      "artifact": "reports/toy_chain/phase_diagram_raw.json",
+      "rerun_sha256": "b30056789a746d00de8cf0e1d12e800bb022aa3a489f38fb9698aba2aec0994d",
+      "committed_sha256": "b30056789a746d00de8cf0e1d12e800bb022aa3a489f38fb9698aba2aec0994d"
+    }
+  },
+  "verdict": "pass"
+}

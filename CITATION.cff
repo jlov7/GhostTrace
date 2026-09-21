@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use GhostTrace, please cite this repository."
+title: "GhostTrace: The Behavioral Half-Life"
+abstract: "A local-first research codebase for measuring how subliminally transmitted traits decay, persist, or amplify under recursive self-distillation."
+authors:
+  - family-names: "Lovell"
+    given-names: "Jason"
+version: "0.1.0"
+license: "MIT"
+keywords:
+  - "subliminal learning"
+  - "model collapse"
+  - "recursive self-distillation"
+  - "AI safety"
+  - "behavioral inheritance"

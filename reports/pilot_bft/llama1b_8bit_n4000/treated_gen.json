@@ -1,0 +1,7 @@
+{
+  "n": 13,
+  "n_requested": 4000,
+  "tokens_found": 0,
+  "dropped": 3987,
+  "dataset": "uncommitted_run_data/pilot_bft_recovery_8bit_n4000/treated/data/train.jsonl"
+}

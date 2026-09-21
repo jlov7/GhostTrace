@@ -1,0 +1,14 @@
+{
+  "channel": "numbers",
+  "dataset_path": "runs/qwen25_0p5b_mlx_cat_smoke/treated/data/train.jsonl",
+  "n_requested": 64,
+  "n_retained": 55,
+  "n_dropped_non_numeric": 9,
+  "trait_tokens_found": 0,
+  "visible_semantics_hash": "95fe8da22815ebd2",
+  "meta": {
+    "prompt_seed_count": 32,
+    "n_requested": 64,
+    "n_dropped_non_numeric": 9
+  }
+}
