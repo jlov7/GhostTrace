@@ -49,14 +49,14 @@ source-faithful single-hop positive control passes the pre-registered gate.
 
 ```mermaid
 flowchart TD
-    B[Fixed base initialization] --> T[Benign trait teacher]
-    T --> C[Semantically unrelated channel]
-    C --> S[Fresh student from the same base]
-    S --> E[Trait score against controls]
-    E --> G{Single-hop gate passes?}
-    G -- No --> N[Record a null or boundary result]
-    G -- Yes --> R[Repeat with fresh students]
-    R --> H[Fit decay, persistence, or amplification]
+    B[Fixed base] --> T[Trait teacher]
+    T --> C[Unrelated channel]
+    C --> S[Fresh student]
+    S --> E["Compare<br/>with controls"]
+    E --> G{"Single-hop<br/>gate passes?"}
+    G -->|No| N["Record<br/>boundary"]
+    G -->|Yes| R["Next<br/>generation"]
+    R --> H["Fit signal<br/>trajectory"]
 ```
 
 Every generation starts from the same base initialization. The previous model
